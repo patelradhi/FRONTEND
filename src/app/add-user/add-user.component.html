@@ -21,8 +21,7 @@ data-bs-theme="dark"
 </nav>
 
 
-<form  #userForm="ngForm" (ngSubmit)="onSubmit()" (ngSubmit)="createUser()" >
-
+ <form  #userForm="ngForm" (ngSubmit)="onSubmit()" (ngSubmit)="createUser()" >
   <div *ngIf="showSuccessMessage " class="alert alert-success" role="alert">
    success
   </div>
@@ -32,14 +31,8 @@ data-bs-theme="dark"
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Name</label>
     <input type="text" class="form-control" id="name" [(ngModel)]="formData.Name" name="Name" >
-
-    <!-- Validation message -->
-    <div *ngIf="userForm.controls['Name'].invalid && (userForm.controls['Name'].dirty || userForm.controls['Name'].touched)" class="text-danger">
-      <div *ngIf="userForm.controls['Name'].errors?.['required']">
-        Name is required.
-      </div>
-    </div>
   </div>
+
 
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email</label>
@@ -61,4 +54,41 @@ data-bs-theme="dark"
 
 
   <button type="submit" class="btn btn-primary" >{{ userId ? 'Update' : 'Create' }}user</button>
-</form>
+</form> 
+
+<!-- <form  [formGroup]="userData" (ngSubmit)="onSubmit()" (ngSubmit)="createUser()" >
+  <div *ngIf="showSuccessMessage " class="alert alert-success" role="alert">
+   success
+  </div>
+
+
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Name</label>
+    <input type="text" class="form-control" id="name" formControlName="Name" >
+    <br>
+    <span style="color: red;"  *ngIf= "userData.Name && userData.Name.invalid && userData.Name.touched"> this feild is not valid</span>
+  </div>
+
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" formControlName="Email" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3" >
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="password" formControlPassword="Password">
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Contact</label>
+    <input type="contact" class="form-control" id="contact" formControlContact="Contact">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Address</label>
+    <input type="address" class="form-control" id="address" formControlAddress="Address">
+  </div>
+
+
+  <button type="submit" class="btn btn-primary" >{{ userId ? 'Update' : 'Create' }}user</button>
+</form> -->

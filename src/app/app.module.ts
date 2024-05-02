@@ -9,13 +9,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { LoginComponent } from './login/login.component';
 // import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddUserComponent,
-    UserListComponent
+    UserListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

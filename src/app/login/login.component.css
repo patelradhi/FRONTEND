@@ -1,0 +1,20 @@
+.navbar{
+    background-color: rgb(93, 93, 180);
+    margin-top: 8px;
+    height: 50px;
+  }
+  .navbar-brand{
+    margin-left: 60px;
+  }
+  
+  .container{
+    background-color:#a183d1;
+    width: 700px;
+    height: 630px; 
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+
+  }

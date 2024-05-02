@@ -16,6 +16,11 @@ export class AddUserComponent implements OnInit {
   Api_url = ' http://localhost:9300';
   userId: string;
   response: any = [];
+
+
+  // Declare formData property
+
+
   showSuccessMessage: boolean = false;
   // transactionType: Boolean = true;
 
@@ -29,6 +34,15 @@ export class AddUserComponent implements OnInit {
     Contact: '',
     Address: '',
   };
+
+  // userData = new FormGroup({
+  //   Name:new FormControl("",[Validators.required]),
+  //   Email: new FormControl("",[Validators.required,Validators.email]),
+  //   Password:new FormControl("",[Validators.required]),
+  //   Contact: new FormControl("",[Validators.required]),
+  //   Address: new FormControl("",[Validators.required]),
+
+  // })
 
   constructor(private http: HttpClient, private route: ActivatedRoute
   ) {
@@ -87,6 +101,10 @@ export class AddUserComponent implements OnInit {
       this.showSuccessMessage = false;
     }, 5000);
   }
+
+  // get Name (){
+  //   return this.userData.get("Name")
+  // }
 
 
   }
