@@ -1,0 +1,64 @@
+
+
+<nav
+class="navbar navbar-expand-lg bg-body-tertiary navbar "
+data-bs-theme="dark"
+>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">TrustTags</a>
+    <button
+    class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  </div>
+</nav>
+
+
+<form  #userForm="ngForm" (ngSubmit)="onSubmit()" (ngSubmit)="createUser()" >
+
+  <div *ngIf="showSuccessMessage " class="alert alert-success" role="alert">
+   success
+  </div>
+
+
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Name</label>
+    <input type="text" class="form-control" id="name" [(ngModel)]="formData.Name" name="Name" >
+
+    <!-- Validation message -->
+    <div *ngIf="userForm.controls['Name'].invalid && (userForm.controls['Name'].dirty || userForm.controls['Name'].touched)" class="text-danger">
+      <div *ngIf="userForm.controls['Name'].errors?.['required']">
+        Name is required.
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email</label>
+    <input type="email" class="form-control" id="exampleInputEmail1"  [(ngModel)]="formData.Email" name="Email" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3" >
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="password" [(ngModel)]="formData.Password" name="Password">
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Contact</label>
+    <input type="contact" class="form-control" id="contact" [(ngModel)]="formData.Contact" name="Contact">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Address</label>
+    <input type="address" class="form-control" id="address"  [(ngModel)]="formData.Address" name="Address">
+  </div>
+
+
+  <button type="submit" class="btn btn-primary" >{{ userId ? 'Update' : 'Create' }}user</button>
+</form>

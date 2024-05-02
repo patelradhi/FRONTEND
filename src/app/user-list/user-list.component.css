@@ -1,0 +1,98 @@
+body{
+    background-color: rgb(237, 237, 236);
+    width: 100%;
+}
+/* .container{
+  background-color: rgb(93, 93, 180);
+  height: 50px;
+    width: 100%;
+    margin-top: 35px;
+    margin-left: 4px; 
+
+    
+} */
+/* .abc{
+    display: flex;
+    margin-left: 25px;
+    padding-top: 0;
+    margin-top: 0;
+
+} */
+
+/* .Trusttags{
+    margin-left: 50px;
+    font-size: larger;
+    color: rgb(230, 230, 239);
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+} */
+/* .user{
+    margin-left: 1200px;
+    margin-top: 0;
+    padding-top: 0;
+    border-radius: 10px;
+    width: 150px;
+    height: 50px;
+} */
+
+.secoundContainer{
+    background-color: rgb(237, 237, 230);
+    height: auto;
+    width: 90%;
+    margin: 10px;
+    margin-left: 100px;
+    margin-top: 50px;
+    
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .custom-table th {
+    background-color: #b66d6d; /* Set background color for table header */
+    text-align: center; /* Center-align the text within table headers */
+    padding: 10px; /* Add padding to the table headers */
+  }
+  
+  .custom-table th:nth-child(5),
+  .custom-table th:nth-child(6),
+  .custom-table th:nth-child(7)
+   {
+    background-color: #df9999; /* Set different background color for last two headers */
+  }
+
+  .custom-table td{
+    text-align: center; /* Center-align the text within table headers */
+    padding: 10px; /* Add padding to the table headers */
+
+  }
+  
+
+  .clickable-row {
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+  
+  .clickable-row:hover {
+    background-color: lightgray; /* Change background color on hover */
+  }
+  
+  .navbar-brand{
+    margin-left: 60px;
+  }
+  .navbar{
+    background-color: rgb(93, 93, 180);
+    margin-top: 8px;
+    height: 50px;
+  }
+
+  .back{
+    color: white;
+    margin-top: 100px;
+    margin-left: 700px;
+    width: 100px;
+    height: 40px;
+    border-radius: 6px;
+    background-color: rgb(55, 47, 47);
+  }
