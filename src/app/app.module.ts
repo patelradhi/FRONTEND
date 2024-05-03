@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+
 // import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -17,7 +19,8 @@ import { LoginComponent } from './login/login.component';
     AppComponent,
     AddUserComponent,
     UserListComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

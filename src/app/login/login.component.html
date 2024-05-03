@@ -27,20 +27,42 @@
       </div>
     </nav>
 
+    <div  *ngIf="success" class="alert alert-success" role="alert">
+      <span class="">Logged in successfully</span>
+     </div>
+
+
     <div class="container">
-        <form>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <br>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
-            </div>
-            <br>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-    </div>
+
+  
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" formControlName="email">
+          <div *ngIf="loginForm?.get('email')?.invalid && (loginForm?.get('email')?.dirty || loginForm?.get('email')?.touched)">
+            <div class="text" *ngIf="loginForm?.get('email')?.errors?.['required']">*Email is required</div>
+            <div  class="text" *ngIf="loginForm?.get('email')?.errors?.['email']">*Invalid email format</div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" formControlName="password">
+          <div *ngIf="loginForm?.get('password')?.invalid && (loginForm?.get('password')?.dirty || loginForm?.get('password')?.touched)">
+            <div  class="text" *ngIf="loginForm?.get('password')?.errors?.['required']"> *Password is required</div>
+            <div class="text" *ngIf="loginForm?.get('password')?.errors?.['invalidPassword']">*Password must be at most 10 characters long and contain at least one letter and one digit</div>
+          </div>
+        </div>
+        <br>
+        <br>
+
+        <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Submit</button>
+      </form>
+
+     </div>
+
+
+         
     </body>
 </html>

@@ -60,12 +60,11 @@ export class UserListComponent implements OnInit  {
   goBack(){
     // Navigate back to the previous page
    this.router.navigate(['admin']);
+   this.getAllUser()
    // Reset flags
     this.getById = false;
     this.visible = true;
     this.visibleButton = false;
   }
-
-
   }
 
