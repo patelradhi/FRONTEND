@@ -1,0 +1,67 @@
+<div class="content">
+  <div class="inline-div">
+    <form class="row g-3 needs-validation list-page" novalidate>
+      <div class="col-md-7">
+        <label for="validationCustom04" class="form-label"
+          >Select Product</label
+        >
+
+        <select class="form-select" id="inputGroupSelect02">
+          <option selected>Choose...</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+      <div class="col-md-7">
+        <label for="validationCustom04" class="form-label">Mrp</label>
+        <input
+          type="text"
+          class="form-control"
+          id="validationCustom01"
+          required
+        />
+      </div>
+      <div class="col-md-8">
+        <label for="validationCustom04" class="form-label">Mgf Date</label>
+        <br />
+        <mat-form-field>
+          <input
+            matInput
+            [matDatepicker]="picker1"
+            placeholder="Choose a date"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker1"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+
+        <br />
+      </div>
+
+      <div class="col-md-8">
+        <label for="validationCustom04" class="form-label">Exp Date</label>
+        <br />
+        <mat-form-field>
+          <input
+            matInput
+            [matDatepicker]="picker2"
+            placeholder="Choose another date"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker2"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div class="col-12">
+        <br />
+        <button class="btn btn-primary" type="submit">Create Batch</button>
+      </div>
+    </form>
+  </div>
+</div>

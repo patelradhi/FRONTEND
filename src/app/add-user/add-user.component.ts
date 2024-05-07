@@ -3,9 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
-
-
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-add-user',
@@ -13,21 +16,16 @@ import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms"
   styleUrl: './add-user.component.css',
 })
 export class AddUserComponent implements OnInit {
-  Api_url = ' http://localhost:9300';
+  Api_url = ' http://localhost:9200';
   userId: string;
   response: any = [];
 
-
   // Declare formData property
-
 
   showSuccessMessage: boolean = false;
   // transactionType: Boolean = true;
 
-
-  
-  
-  formData={
+  formData = {
     Name: '',
     Email: '',
     Password: '',
@@ -44,21 +42,18 @@ export class AddUserComponent implements OnInit {
 
   // })
 
-  constructor(private http: HttpClient, private route: ActivatedRoute
-  ) {
-    this.userId = ''
-
+  constructor(private http: HttpClient, private route: ActivatedRoute) {
+    this.userId = '';
   }
-
 
   ngOnInit(): void {
     // Get user ID from route parameters
     this.route.params.subscribe((params) => {
-      if(params['id']){
+      if (params['id']) {
         // this.transactionType = false;
       }
       this.userId = params['id'];
-      console.log(params)
+      console.log(params);
       if (this.userId) {
         // Fetch user data for update operation
         this.http
@@ -66,7 +61,6 @@ export class AddUserComponent implements OnInit {
           .subscribe((res: any) => {
             // console.log('res///////////////////////////////', res);
             this.formData = res.data; // Store fetched user data
-
           });
       }
     });
@@ -74,28 +68,26 @@ export class AddUserComponent implements OnInit {
 
   onSubmit() {
     if (this.userId) {
-
-      this.http.put(this.Api_url + '/update/user',this.formData).subscribe((res:any)=>{
-        console.log('res>>>>>>>>>>>>>>>>>>>>>>>>', res)
-        this.response = res.data
-                 // Set update success message flag to true
-
-
-      })
+      this.http
+        .put(this.Api_url + '/update/user', this.formData)
+        .subscribe((res: any) => {
+          console.log('res>>>>>>>>>>>>>>>>>>>>>>>>', res);
+          this.response = res.data;
+          // Set update success message flag to true
+        });
     } else {
       this.http
         .post(this.Api_url + '/create/user', this.formData)
         .subscribe((res: any) => {
           console.log('res>>>>>>>>>>>>>>>>>>>>>>>>', res);
           this.response = res.data;
-
         });
     }
   }
 
-  createUser(){
+  createUser() {
     // After successfully creating user, show success message
-    this.showSuccessMessage =true
+    this.showSuccessMessage = true;
     // Automatically hide the success message after a few seconds
     setTimeout(() => {
       this.showSuccessMessage = false;
@@ -105,8 +97,4 @@ export class AddUserComponent implements OnInit {
   // get Name (){
   //   return this.userData.get("Name")
   // }
-
-
-  }
-
-
+}

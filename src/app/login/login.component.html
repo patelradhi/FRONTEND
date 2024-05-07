@@ -1,68 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
+  </head>
+  <body>
     <nav
-    class="navbar navbar-expand-lg bg-body-tertiary navbar "
-    data-bs-theme="dark"
+      class="navbar navbar-expand-lg bg-body-tertiary navbar"
+      data-bs-theme="dark"
     >
       <div class="container-fluid">
         <a class="navbar-brand" href="#">TrustTags</a>
         <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
       </div>
     </nav>
 
-    <div  *ngIf="success" class="alert alert-success" role="alert">
+    <div *ngIf="success" class="alert alert-success" role="alert">
       <span class="">Logged in successfully</span>
-     </div>
-
+    </div>
 
     <div class="container">
-
-  
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" formControlName="email">
-          <div *ngIf="loginForm?.get('email')?.invalid && (loginForm?.get('email')?.dirty || loginForm?.get('email')?.touched)">
-            <div class="text" *ngIf="loginForm?.get('email')?.errors?.['required']">*Email is required</div>
-            <div  class="text" *ngIf="loginForm?.get('email')?.errors?.['email']">*Invalid email format</div>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            formControlName="email"
+          />
+          <div
+            *ngIf="
+              loginForm?.get('email')?.invalid &&
+              (loginForm?.get('email')?.dirty ||
+                loginForm?.get('email')?.touched)
+            "
+          >
+            <div
+              class="text"
+              *ngIf="loginForm?.get('email')?.errors?.['required']"
+            >
+              *Email is required
+            </div>
+            <div
+              class="text"
+              *ngIf="loginForm?.get('email')?.errors?.['email']"
+            >
+              *Invalid email format
+            </div>
           </div>
         </div>
-        <br>
-        <br>
+        <br />
+        <br />
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" class="form-control" id="password" formControlName="password">
-          <div *ngIf="loginForm?.get('password')?.invalid && (loginForm?.get('password')?.dirty || loginForm?.get('password')?.touched)">
-            <div  class="text" *ngIf="loginForm?.get('password')?.errors?.['required']"> *Password is required</div>
-            <div class="text" *ngIf="loginForm?.get('password')?.errors?.['invalidPassword']">*Password must be at most 10 characters long and contain at least one letter and one digit</div>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            formControlName="password"
+          />
+          <div
+            *ngIf="
+              loginForm?.get('password')?.invalid &&
+              (loginForm?.get('password')?.dirty ||
+                loginForm?.get('password')?.touched)
+            "
+          >
+            <div
+              class="text"
+              *ngIf="loginForm?.get('password')?.errors?.['required']"
+            >
+              *Password is required
+            </div>
+            <div
+              class="text"
+              *ngIf="loginForm?.get('password')?.errors?.['invalidPassword']"
+            >
+              *Password must be at most 10 characters long and contain at least
+              one letter and one digit
+            </div>
           </div>
         </div>
-        <br>
-        <br>
+        <br />
+        <br />
 
-        <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Submit</button>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="loginForm.invalid"
+        >
+          Submit
+        </button>
       </form>
-
-     </div>
-
-
-         
-    </body>
+    </div>
+  </body>
 </html>

@@ -4,8 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>user_records</title>
-    
-
   </head>
 
   <body>
@@ -17,79 +15,96 @@
         </div>
       </nav>
     </div>  -->
-<nav
-class="navbar navbar-expand-lg bg-body-tertiary navbar "
-data-bs-theme="dark"
->
-<div class="container-fluid">
-  <a class="navbar-brand" href="#">TrustTags</a>
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-bs-toggle="collapse"
-    data-bs-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="mx-2">
-    <button
-      class="btn btn-success"
-      data-bs-toggle="modal"
-      data-bs-target="#signupModal"
-      *ngIf="visible"
-      routerLink="/add-user">
-     + CREATE USER
-    </button>
-  </div>
-  </div>
-</nav>
+    <nav
+      class="navbar navbar-expand-lg bg-body-tertiary navbar"
+      data-bs-theme="dark"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">TrustTags</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="mx-2">
+          <button
+            class="btn btn-success"
+            data-bs-toggle="modal"
+            data-bs-target="#signupModal"
+            *ngIf="visible"
+            routerLink="/add-user"
+          >
+            + CREATE USER
+          </button>
+        </div>
+      </div>
+    </nav>
 
     <div class="secoundContainer">
       <table class="custom-table">
         <thead>
-          <tr >
+          <tr>
             <th>Id</th>
             <th>Name</th>
             <th>Email</th>
             <th>Address</th>
             <th *ngIf="getById">Contact</th>
 
-
             <th *ngIf="visible">Update Button</th>
             <th *ngIf="visible">Delete Button</th>
             <th *ngIf="visible">View Button</th>
-
           </tr>
         </thead>
         <tbody>
-          <tr  class="clickable-row" *ngFor="let user of response; index as i" >
-            <td >{{i+1}}</td>
-            <td>{{user.Name}}</td>
-            <td>{{user.Email}}</td>
-            <td>{{user.Address}}</td>
-            <td *ngIf="getById">{{user.Contact}}</td>
+          <tr class="clickable-row" *ngFor="let user of response; index as i">
+            <td>{{ i + 1 }}</td>
+            <td>{{ user.Name }}</td>
+            <td>{{ user.Email }}</td>
+            <td>{{ user.Address }}</td>
+            <td *ngIf="getById">{{ user.Contact }}</td>
 
-            
-            <td *ngIf="visible"><button  type="button" class="btn btn-warning" routerLink="/update-user/{{user.Id}}">Update</button></td>
-            <td *ngIf="visible"><button type="button" class="btn btn-danger" (click)="deleteUser(user.Id)" >Delete</button></td>
-            <td *ngIf="visible"><button type="button" class="btn btn-primary" (click)="viewUser(user.Id)" >view</button></td>
-
+            <td *ngIf="visible">
+              <button
+                type="button"
+                class="btn btn-warning"
+                routerLink="/update-user/{{ user.Id }}"
+              >
+                Update
+              </button>
+            </td>
+            <td *ngIf="visible">
+              <button
+                type="button"
+                class="btn btn-danger"
+                (click)="deleteUser(user.Id)"
+              >
+                Delete
+              </button>
+            </td>
+            <td *ngIf="visible">
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="viewUser(user.Id)"
+              >
+                view
+              </button>
+            </td>
           </tr>
           <!-- Add more rows as needed -->
         </tbody>
       </table>
-
     </div>
 
     <div *ngIf="visibleButton">
-      <button  class=" back"  (click)="goBack()">
-       <- Back
-      </button>
+      <button class="back" (click)="goBack()"><- Back</button>
     </div>
-    
   </body>
 </html>
 
