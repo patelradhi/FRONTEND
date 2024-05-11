@@ -5,7 +5,7 @@ class="navbar navbar-expand-lg bg-body-tertiary navbar "
 data-bs-theme="dark"
 >
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">TrustTags</a>
+    <a class="navbar-brand" >TrustTags</a>
     <button
     class="navbar-toggler"
     type="button"
@@ -21,7 +21,7 @@ data-bs-theme="dark"
 </nav>
 
 
- <form  #userForm="ngForm" (ngSubmit)="onSubmit()" (ngSubmit)="createUser()" >
+ <!-- <form #userForm="ngForm" (ngSubmit)="onSubmit()" (ngSubmit)="createUser()" >
   <div *ngIf="showSuccessMessage " class="alert alert-success" role="alert">
    success
   </div>
@@ -30,7 +30,7 @@ data-bs-theme="dark"
 
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Name</label>
-    <input type="text" class="form-control" id="name" [(ngModel)]="formData.Name" name="Name" >
+    <input type="text" class="form-control" id="name" [(ngModel)]="formData.Name" name="name" >
   </div>
 
 
@@ -54,41 +54,85 @@ data-bs-theme="dark"
 
 
   <button type="submit" class="btn btn-primary" >{{ userId ? 'Update' : 'Create' }}user</button>
-</form> 
+</form>  -->
 
-<!-- <form  [formGroup]="userData" (ngSubmit)="onSubmit()" (ngSubmit)="createUser()" >
-  <div *ngIf="showSuccessMessage " class="alert alert-success" role="alert">
-   success
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div *ngIf="showSuccessMessage" class="alert alert-success" role="alert">
+    Success
   </div>
+
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" id="name" formControlName="Name">
+    <!-- <div *ngIf="userForm?.get('Name')?.invalid && userForm?.get('Name')?.touched" class="text-danger">
+      Name is required
+    </div> -->
+  </div>
+
+  <div class="mb-3">
+    <label for="Email" class="form-label">Email</label>
+    <input type="Email" class="form-control" id="Email" formControlName="Email">
+    <!-- <div *ngIf="
+              userForm?.get('Email')?.invalid &&
+              (userForm?.get('Email')?.dirty ||
+                userForm?.get('Email')?.touched)
+    "  class="text-danger">
+                <div
+                *ngIf="userForm?.get('Email')?.errors?.['required']"
+              >
+                Email is required
+              </div>
+              <div
+                *ngIf="userForm?.get('Email')?.errors?.['email']"
+              >
+                Invalid email format
+              </div> -->
+  
+  <!-- </div> -->
+  </div>
+
+   <div class="mb-3">
+    <label for="Password" class="form-label">Password</label>
+    <input type="Password" class="form-control" id="Password" formControlName="Password">
+
+    <!-- <div *ngIf="userForm?.get('Password')?.invalid &&   
+                (userForm?.get('Password')?.dirty ||
+                 userForm?.get('Password')?.touched)
+" class="text-danger"
+>
+
+  
+      <div
+      *ngIf="userForm?.get('Password')?.errors?.['required']"
+    >
+      Password is required
+    </div>
+    <div
+      *ngIf="userForm?.get('Password')?.errors?.['invalidPassword']"
+    >
+      Password must be at most 10 characters long and contain at least
+      one letter and one digit
+    </div>
+</div> -->
+  </div> 
 
 
 
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Name</label>
-    <input type="text" class="form-control" id="name" formControlName="Name" >
-    <br>
-    <span style="color: red;"  *ngIf= "userData.Name && userData.Name.invalid && userData.Name.touched"> this feild is not valid</span>
-  </div>
-
-
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" formControlName="Email" aria-describedby="emailHelp">
-  </div>
-  <div class="mb-3" >
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="password" formControlPassword="Password">
+    <label for="contact" class="form-label">Contact</label>
+    <input type="text" class="form-control" id="contact" formControlName="Contact">
+    <!-- <div *ngIf="userForm?.get('Contact')?.invalid && userForm?.get('Contact')?.touched" class="text-danger">
+      Contact is required
+    </div> -->
   </div>
 
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Contact</label>
-    <input type="contact" class="form-control" id="contact" formControlContact="Contact">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Address</label>
-    <input type="address" class="form-control" id="address" formControlAddress="Address">
+    <label for="address" class="form-label">Address</label>
+    <input type="text" class="form-control" id="address" formControlName="Address">
+    <!-- <div *ngIf="userForm?.get('Address')?.invalid && userForm?.get('Address')?.touched" class="text-danger">
+      Address is required
+    </div> -->
   </div>
 
-
-  <button type="submit" class="btn btn-primary" >{{ userId ? 'Update' : 'Create' }}user</button>
-</form> -->
+  <button type="submit" class="btn btn-primary">{{ userId ? 'Update' : 'Create' }} user</button>
+</form>

@@ -1,0 +1,84 @@
+    <div class="content">
+        <div class="inline-div">
+        <form #batchForm="ngForm" (ngSubmit)="onSubmit()" class="row g-3 needs-validation list-page" novalidate>
+            <div class="col-md-7">
+            <label for="validationCustom04" class="form-label"
+                >Select Product</label
+            >
+    
+            <select class="form-select" id="inputGroupSelect02" [(ngModel)]="batchData.productName" name="productName">
+                <option selected>Choose...</option>
+                <option *ngFor="let product of products">{{ product.Name }}</option>
+            </select>
+            </div>
+            <div class="col-md-7">
+            <label for="validationCustom04" class="form-label">Mrp</label>
+            <input
+                type="text"
+                class="form-control"
+                id="validationCustom01"
+                [(ngModel)]="batchData.mrp" 
+                name="mrp"
+                required
+            />
+            </div>
+            <div class="col-md-6">
+            <label for="validationCustom04" class="form-label">Mgf Date</label>
+            <br />
+
+            <mat-form-field>
+                <input matInput [matDatepicker]="mfgDatepicker" placeholder="Manufacturing Date" [(ngModel)]="batchData.mfg" name="mfg">
+                <mat-datepicker-toggle matSuffix [for]="mfgDatepicker"></mat-datepicker-toggle>
+                <mat-datepicker #mfgDatepicker></mat-datepicker>
+              </mat-form-field>
+
+            </div>
+    
+            <div class="col-md-6">
+            <label for="validationCustom04" class="form-label">Exp Date</label>
+            <br />
+
+            <mat-form-field>
+                <input matInput [matDatepicker]="expDatepicker" placeholder="Expiration Date" [(ngModel)]="batchData.exp " name="exp">
+                <mat-datepicker-toggle matSuffix [for]="expDatepicker"></mat-datepicker-toggle>
+                <mat-datepicker #expDatepicker></mat-datepicker>
+              </mat-form-field>
+            </div>
+
+            <div *ngIf="errorMessage" class="error-message" style="color: red;">
+                {{ errorMessage }}
+             </div>
+
+            <div class="col-12 ">
+            <button class=" create-button" type="submit">+ ADD</button>
+            </div>
+        </form>
+        </div>
+
+        <div class="list-table">
+            <table class="custom-table">
+                <thead>
+                  <tr >
+                    <th>Btach_Id</th>
+                    <th>Product_Name</th>
+                    <th>Mrp</th>
+                    <th>Mfg_Date</th>
+                    <th>Exp_Date</th>
+        
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr  class="clickable-row" *ngFor="let batch of batches; index as i"  >
+                    <td >{{i+1}}</td>
+                    <td>{{batch.productId}}</td>
+                    <td>{{batch.mrp}}</td>
+                    <td>{{batch.mfg_date}}</td>
+                    <td>{{batch.exp_date}}</td>
+                  </tr>
+
+
+                  <!-- Add more rows as needed -->
+                </tbody>
+              </table>
+         </div>
+    </div>

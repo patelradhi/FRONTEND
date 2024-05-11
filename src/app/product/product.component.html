@@ -1,0 +1,76 @@
+
+<div class="content">
+    <div class="inline-div">
+      <form   #productForm="ngForm" (ngSubmit)="onSubmit()"   class="form-group row g-3 needs-validation list-page" novalidate>
+        <div class="col-md-8">
+          <label for="validationCustom01" class="form-label">Product Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="Name"
+            name="Name" 
+            [(ngModel)]="product.Name"
+
+            required
+          />
+          <div class="valid-feedback">Looks good!</div>
+        </div>
+        <div class="col-md-8">
+          <label for="validationCustom04" class="form-label">Product Type</label>
+          <input
+            type="text"
+            id="Type" 
+            class="form-control"
+            name="Type" 
+            [(ngModel)]="product.Type"
+            required
+          />
+        </div>
+        <div class="col-md-8">
+          <label for="validationCustom05" class="form-label">Product Image</label>
+  
+          <div class="input-group mb-3">
+            <input
+              type="file"
+              class="form-control"
+              id="images"
+              name="images"
+              (change)="onFileSelected($event)"
+              required
+            />
+  
+          </div>
+        </div>
+  
+        <div class="col-12">
+          <br />
+          <button class="add-button" type="submit">+ ADD</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="list-table">
+      <table class="custom-table">
+          <thead>
+            <tr >
+              <th>product_Id</th>
+              <th>Product_Name</th>
+              <th>product_Type</th>
+  
+            </tr>
+          </thead>
+          <tbody>
+            <tr  class="clickable-row" *ngFor="let product of products; index as i"  >
+              <td >{{i+1}}</td>
+              <td>{{product.Name}}</td>
+              <td>{{product.Type}}</td>
+            </tr>
+
+
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+   </div>
+
+  </div>
+  

@@ -1,65 +1,116 @@
-<body>
-
-    <nav
-class="navbar navbar-expand-lg bg-body-tertiary navbar "
-data-bs-theme="dark"
->
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">TrustTags</a>
-    <button
-    class="navbar-toggler"
-    type="button"
-    data-bs-toggle="collapse"
-    data-bs-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
+<!-- <body>
+  <nav
+    class="navbar navbar-expand-lg bg-body-tertiary navbar"
+    data-bs-theme="dark"
   >
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  </div>
-</nav>
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">TrustTags</a>
+    </div>
+  </nav>
 
-<!-- <div class="sidebar">
-    <li>Product</li>
-    <li>Batch</li>
-</div> -->
-
-
-<div class="d-flex flex-column flex-shrink-0 p-3 bg-light sidebar" >
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none ">
-      <li class="nav-item  nav nav-pills flex-column mb-auto ">
-        <a href="#" class="nav-link active home" aria-current="page">
-          Home
-        </a>
-      </li>
-
-    </a>
-    <hr>
-    <ul class="nav nav-pills flex-column mb-auto">
-      <li>
-        <a href="#" class="nav-link link-dark">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-          Products
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link link-dark">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-          Batch
-        </a>
-      </li>
-    </ul>
-    <hr>
-    <!-- <a class="dropdown-item" (click)="onClick">Logout</a> -->
-    <button (click)="onClick">Logout</button>
-
-    <!-- <div class="dropdown">
-      <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+  <div>
+    <div class="p-3 sidebar">
+      <a
+        href="/"
+        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
+      >
+        <li class="nav-item nav nav-pills flex-column">
+          <a href="#" class="nav-link home" aria-current="page"> Home </a>
+        </li>
       </a>
-        <li><a class="dropdown-item" href="#">Sign out</a></li>
-    </div> -->
+      <hr />
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li>
+          <a href="#" class="nav-link link-hover">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#grid"></use>
+            </svg>
+            Products
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link link-hover">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#people-circle"></use>
+            </svg>
+            Batch
+          </a>
+        </li>
+      </ul>
+      <hr />
+      <button type="button" class="btn btn-primary Logout" (click)="(onClick)">
+        Logoutss
+      </button>
+    </div>
+
+    <div class="inline-div">hello</div>
   </div>
-    
+</body> -->
+
+<!--new code-->
+
+<body>
+  <nav
+    class="navbar navbar-expand-lg bg-body-tertiary navbar"
+    data-bs-theme="dark"
+  >
+    <div class="container-fluid">
+      <a class="navbar-brand" >TrustTags</a>
+    </div>
+  </nav>
+
+  <div class="d-flex">
+    <div class="p-3 sidebar">
+      <a
+        href="/"
+        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
+      >
+        <li class="nav-item nav nav-pills flex-column">
+          <a href="#" class="nav-link home" aria-current="page"> Home </a>
+        </li>
+      </a>
+      <hr />
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li>
+          <a class="nav-link link-hover" id="product-link" (click)="toogelProduct()" >
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#grid"></use>
+            </svg>
+            Product
+          </a>
+        </li>
+        <li>
+          <a class="nav-link link-hover" id="product-link" (click)="toogelBatch()" >
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#people-circle"></use>
+            </svg>
+            Batch
+          </a>
+        </li>
+      </ul>
+      <hr />
+      <button type="button" class="btn btn-primary Logout" (click)="toogelLogout()">
+        Logout
+      </button>
+    </div>
+
+    <div class="content">
+      <div class="inline-div">
+        <div *ngIf="showProduct">
+          <app-product></app-product>
+        </div>
+        <div *ngIf="showBatch">
+          <app-batch></app-batch>
+        </div>
+
+        <!-- <app-batch></app-batch> -->
+        <!-- <app-product></app-product> -->
+
+
+      </div>
+    </div>
+  </div>
 </body>
+
+<!-- <router-outlet> </router-outlet> -->
 

@@ -1,21 +1,68 @@
-.navbar{
-    background-color: rgb(93, 93, 180);
-    margin-top: 8px;
-    height: 50px;
-  }
-  .navbar-brand{
-    margin-left: 60px;
-  }
 
-  .sidebar{
-    color: black;
-    background-color: #3f0e94;
-    width: 300px;
-    height: 676px;
-    margin-top: 0; 
-  }
-  .home{
-    width: 270px;
-    height: 50px;
-    margin-left: 0;
-  }
+.navbar {
+  background: linear-gradient(to right, #643aac, rgb(213, 89, 213));
+  margin-top: 8px;
+  height: 50px;
+}
+.navbar-brand {
+  margin-left: 60px;
+}
+
+.sidebar {
+  color: white;
+  background: #5d2cb4;
+  height: 660px;
+  margin-top: 0;
+}
+.home {
+  width: 220px;
+  background-color: rgb(36, 36, 210);
+  height: 50px;
+  margin-left: 0;
+}
+
+.link-hover:hover {
+  color: white;
+  background-color: #8260bb;
+  cursor: default;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+.Logout {
+  margin-top: 400px;
+  margin-left: 50px;
+}
+.main-page {
+  background-color: #8658d4;
+}
+
+.inline-div {
+  display: inline;
+  margin-left: 20px; /* Adjust as needed */
+}
+
+.d-flex {
+  display: flex;
+}
+
+.sidebar {
+  flex: 0 0 auto; /* Sidebar does not grow or shrink */
+}
+
+.content {
+  flex: 1; /* Content takes remaining space */
+  background-color: rgb(248, 244, 244);
+  height: 660px;
+}
+
+.inline-div {
+  display: inline;
+}
+
+.list-page {
+  margin-left: 30px;
+  margin-top: 30px;
+}

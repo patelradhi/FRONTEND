@@ -1,4 +1,4 @@
-.navbar{
+/* .navbar{
     background-color: rgb(93, 93, 180);
     margin-top: 8px;
     height: 50px;
@@ -33,4 +33,46 @@
   .alertMessage{
     padding-bottom: 10px;
   }
+   */
+
+   body{
+    background-color:white
+
+   }
+
+   .navbar {
+    /* background-color: rgb(82, 109, 171); */
+    background: linear-gradient(to right, rgb(90, 90, 243), purple);
+    margin-top: 8px;
+    height: 50px;
+  }
+  .navbar-brand {
+    margin-left: 60px;
+  }
   
+  .container {
+    /* background-color:#a994d4; */
+    background: url("./loginn.webp");
+    width: 1200px;
+    height: 600px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+  }
+  .text {
+    color: rgb(149, 46, 46);
+    font-size: small;
+  }
+  
+  .alert-success {
+    height: 40px;
+    width: 200px;
+    margin-left: 500px;
+    margin-top: 30px;
+    padding-bottom: 4px;
+  }
+  .alertMessage {
+    padding-bottom: 10px;
+  }

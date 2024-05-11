@@ -22,7 +22,7 @@ class="navbar navbar-expand-lg bg-body-tertiary navbar "
 data-bs-theme="dark"
 >
 <div class="container-fluid">
-  <a class="navbar-brand" href="#">TrustTags</a>
+  <a class="navbar-brand" >TrustTags</a>
   <button
     class="navbar-toggler"
     type="button"
@@ -34,9 +34,9 @@ data-bs-theme="dark"
   >
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="mx-2">
+  <div class="mx-2 ">
     <button
-      class="btn btn-success"
+      class="btn btn-success create "
       data-bs-toggle="modal"
       data-bs-target="#signupModal"
       *ngIf="visible"
@@ -44,7 +44,18 @@ data-bs-theme="dark"
      + CREATE USER
     </button>
   </div>
+
+  <div class="mx-2">
+    <button
+    type="button"
+      class="btn btn-primary"
+      (click)="onClick()" >
+     Logout
+    </button>
   </div>
+
+  </div>
+  
 </nav>
 
     <div class="secoundContainer">
@@ -58,9 +69,10 @@ data-bs-theme="dark"
             <th *ngIf="getById">Contact</th>
 
 
+            <th *ngIf="visible">View Button</th>
             <th *ngIf="visible">Update Button</th>
             <th *ngIf="visible">Delete Button</th>
-            <th *ngIf="visible">View Button</th>
+
 
           </tr>
         </thead>
@@ -72,10 +84,10 @@ data-bs-theme="dark"
             <td>{{user.Address}}</td>
             <td *ngIf="getById">{{user.Contact}}</td>
 
-            
-            <td *ngIf="visible"><button  type="button" class="btn btn-warning" routerLink="/update-user/{{user.Id}}">Update</button></td>
+
+             <td *ngIf="visible"><button type="button" class="btn btn-primary" (click)="viewUser(user.Id)" >view</button></td>
+            <td *ngIf="visible"><button  type="button" class="btn btn-warning"  routerLink="/update-user/{{user.Id}}"  >Update</button></td>
             <td *ngIf="visible"><button type="button" class="btn btn-danger" (click)="deleteUser(user.Id)" >Delete</button></td>
-            <td *ngIf="visible"><button type="button" class="btn btn-primary" (click)="viewUser(user.Id)" >view</button></td>
 
           </tr>
           <!-- Add more rows as needed -->
@@ -85,7 +97,7 @@ data-bs-theme="dark"
     </div>
 
     <div *ngIf="visibleButton">
-      <button  class=" back"  (click)="goBack()">
+      <button  type="button" class=" back"  (click)="goBack()">
        <- Back
       </button>
     </div>

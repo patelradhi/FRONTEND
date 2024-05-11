@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators ,AbstractControl} from '@angular/for
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { AuthService } from './../../auth/auth.service';
 
 
 
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
 
 
 
-  constructor(private fb: FormBuilder,private http: HttpClient,private router: Router  ) { 
+  constructor(private fb: FormBuilder,private http: HttpClient,private router: Router,private authService: AuthService  ) { 
     this.loginForm = this.fb. group({
       email: ['', [Validators.required, Validators.email]],
       password: ['',[Validators.required ,this.passwordValidator] ]
@@ -39,19 +40,23 @@ export class LoginComponent implements OnInit {
       let queryParams = `&email=${this.loginForm.value.email}&password=${this.loginForm.value.password}`
 
       this.http.get(this.Api_url +"/login?" + queryParams).subscribe((res:any)=>{
-        console.log(res,"/////////////////////////////")
+        console.log(res,"///////////////////////////// this response you are looking")
         this.response=res.data.existUser;
+        localStorage.setItem('access-token', res.data.token);
         console.log(this.response,"response>>>>>>>>>>>>>>>>>>>>>>>>>.")
 
         this.success=true
 
         if(this.success==true && this.response.Role==1){
+          // Assuming login is successful
+           this.authService.setAuthStatus(true); // Set authentication status to true
           this.router.navigate(['admin']);
   
         }else if (this.success==true && this.response.Role==0){
+           // Assuming login is successful
+           this.authService.setAuthStatus(true); // Set authentication status to true
+
           this.router.navigate(['home']);
-
-
 
         }
           

@@ -1,0 +1,58 @@
+
+/* @import 'path/to/indigo-pink.css'; */
+
+.content{
+  width: auto;
+}
+
+.create-button{
+  margin-left: 1100px;
+  margin-top: 0px;
+  background: linear-gradient(to right, #643aac, rgb(213, 89, 213));
+  border-radius: 6rem;
+  font-size: larger;
+  font-weight: 450;
+  width: 100px;
+  border: none;
+  height: 40px;
+  color: rgb(251, 247, 247);
+
+
+}
+.list-page {
+
+    margin-left: 30px;
+    margin-top: 2px;
+  }
+
+  .list-table{
+    background-color: rgb(245, 242, 239);
+    height: auto;
+    margin-top: 15px;
+  }
+
+  .custom-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .custom-table th {
+    background-color: rgb(175, 199, 227);
+    text-align: center; /* Center-align the text within table headers */
+    padding: 10px; /* Add padding to the table headers */
+  }
+
+  .custom-table td{
+    text-align: center; /* Center-align the text within table headers */
+    padding: 10px; /* Add padding to the table headers */
+
+  }
+  
+
+  .clickable-row {
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+  
+  .clickable-row:hover {
+    background-color: lightgray; /* Change background color on hover */
+  }
