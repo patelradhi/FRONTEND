@@ -56,3 +56,26 @@
   .clickable-row:hover {
     background-color: lightgray; /* Change background color on hover */
   }
+
+
+  @media  only screen and  (max-width: 1290px)   {
+    .create-button{
+      margin-left: 4px;
+
+
+    }
+    
+  
+  }
+  
+
+  @media  only screen and  (max-width: 619px)   {
+    .create-button{
+      margin-left: 2px;
+
+
+    }
+    
+    
+  
+  }

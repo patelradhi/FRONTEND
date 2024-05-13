@@ -2,6 +2,8 @@ import { Component,OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AuthService } from './../../auth/auth.service';
+
 
 
 
@@ -18,6 +20,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private http: HttpClient,
     private router :Router,
+    private authService :AuthService
   ) {
 
   }
@@ -30,9 +33,10 @@ export class HomeComponent implements OnInit {
     }
 
   toogelLogout(){
+    this.authService.logout(); // Call the logout method of AuthService
     this.router.navigate(['']);
-    console.log("///////////////////////////////////////////////////")
   }
+    
 
 
   toogelProduct(){

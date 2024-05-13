@@ -53,8 +53,8 @@
   .container {
     /* background-color:#a994d4; */
     background: url("./loginn.webp");
-    width: 1200px;
-    height: 600px;
+    /* width: 1200px; */
+    height: 550px;
     margin-top: 20px;
     display: flex;
     justify-content: center;
@@ -76,3 +76,19 @@
   .alertMessage {
     padding-bottom: 10px;
   }
+
+  @media  only screen  and (min-width:315px)and  (max-width: 580px)   {
+
+    .container {
+      /* width: 600px; */
+      height: 400px;
+      margin-top: 20px;
+      display: flex;
+      justify-content: top;
+      align-items: top;
+      font-size: larger;
+      overflow: auto;
+    }
+  
+  }
+  

@@ -20,17 +20,23 @@ const routes: Routes = [
    component:HomeComponent,
    canActivate: [AuthGuard]
   },
+  {
+    path: '**',
+    component: LoginComponent,
+    // canActivate: [AuthGuard]
+  }
 
-  { path: 'home/product', 
-  component: ProductComponent,
-  canActivate: [AuthGuard]
+//   { path: 'home/product', 
+//   component: ProductComponent,
+//   // canActivate: [AuthGuard]
 
-  // canActivate: [AuthGuard]
- },
-  { path: 'home/batch', component: BatchComponent ,
-  canActivate: [AuthGuard]
+//   // canActivate: [AuthGuard]
+//  },
+//   { path: 'home/batch',
+//    component: BatchComponent ,
+//   // canActivate: [AuthGuard]
 
-  },
+//   },
 
 ];
 

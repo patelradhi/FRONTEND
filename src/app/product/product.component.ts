@@ -1,5 +1,5 @@
 import { Component,OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { FormGroup, FormBuilder, } from '@angular/forms';
 import { Router } from '@angular/router';
 import { File } from 'buffer';
@@ -18,6 +18,8 @@ export class ProductComponent  implements OnInit {
   products :any ={}
   response : any =[]
   selectedFile : File |null = null;
+  httpOptions: any = null; 
+
 
 
   product = {
@@ -37,6 +39,23 @@ export class ProductComponent  implements OnInit {
 
 
   ngOnInit(): void {
+
+    if (typeof localStorage !== 'undefined') {
+      let accessToken = localStorage.getItem('access-token');
+
+      if (accessToken) {
+        this.httpOptions = {
+            headers: new HttpHeaders({
+                'x-access-token': accessToken
+            })
+        };
+    } else {
+        this.httpOptions = {
+            headers: new HttpHeaders()
+        };
+    }
+    }
+
 
     // Initialize the formData property in the ngOnInit lifecycle hook
             //fetch all product
@@ -60,7 +79,7 @@ export class ProductComponent  implements OnInit {
 
    getProducts(){
         //fetch all product
-        this.http.get(this.Api_url + '/get/product').subscribe((ans:any)=>{
+        this.http.get(this.Api_url + '/get/product',this.httpOptions).subscribe((ans:any)=>{
           console.log('ans>>>>>>>>>>>>>>>>>>>>>>>>', ans)
     
           this.products = ans.data
@@ -85,7 +104,7 @@ export class ProductComponent  implements OnInit {
 
     
     console.log(formData, "Here is the formdata data ???????????????????????????")
-    this.http.post(this.Api_url + '/create/product',formData).subscribe((res:any)=>{
+    this.http.post(this.Api_url + '/create/product',formData,this.httpOptions).subscribe((res:any)=>{
       console.log('res recive from backend >>>>>>>>>>>>>>>>>>>>>>>>', res)
 
       //assing response into product array

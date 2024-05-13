@@ -11,7 +11,7 @@
 .sidebar {
   color: white;
   background: #5d2cb4;
-  height: 660px;
+  height: 625px;
   margin-top: 0;
 }
 .home {
@@ -32,7 +32,7 @@ a {
   color: white;
 }
 .Logout {
-  margin-top: 400px;
+  margin-top: 330px;
   margin-left: 50px;
 }
 .main-page {
@@ -55,7 +55,7 @@ a {
 .content {
   flex: 1; /* Content takes remaining space */
   background-color: rgb(248, 244, 244);
-  height: 660px;
+  height: 640px;
 }
 
 .inline-div {
@@ -65,4 +65,31 @@ a {
 .list-page {
   margin-left: 30px;
   margin-top: 30px;
+}
+
+@media  only screen and  (max-width: 1290px)   {
+  .content {
+    height: 630px;
+    width: 30%;
+  }
+  
+
+}
+
+@media  only screen and  (max-width: 619px)   {
+  .content {
+    height: 660px;
+    width: 20%;
+  }
+  
+  .sidebar {
+    height: 720px;
+    margin-top: 0;
+    width: 200px;
+  }
+  .home {
+    width: 150px;
+  }
+  
+
 }

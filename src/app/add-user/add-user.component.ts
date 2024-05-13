@@ -28,7 +28,7 @@ export class AddUserComponent implements OnInit {
   userForm: FormGroup = this.formBuilder.group({
     Name: ['', Validators.required],
     Email: ['', [Validators.required, Validators.email]],
-    Password: ['', Validators.required,this.passwordValidator],
+    Password: ['',[ Validators.required,this.passwordValidator]],
     Contact: ['', Validators.required],
     Address: ['', Validators.required]
   });
@@ -136,14 +136,15 @@ export class AddUserComponent implements OnInit {
 
     if (this.userForm.valid) {
       // Proceed with form submission
-      const formData = this.userForm.value;
+      // const formData = this.userForm.value;
+      // console.log(formData , "formmmmmmmmmmmmmm dataaaaaaaaaaaaaaaaa")
 
       //added
 
     if (this.userId) {
 
       // this.http.put(this.Api_url + '/update/user',this.formData,this.httpOptions).subscribe((res:any)=>{
-        this.http.put(this.Api_url + '/update/user',formData,this.httpOptions).subscribe((res:any)=>{
+        this.http.put(this.Api_url + '/update/user',this.userForm.value,this.httpOptions).subscribe((res:any)=>{
 
         console.log('res>>>>>>>>>>>>>>>>>>>>>>>>', res)
         this.response = res.data
@@ -154,9 +155,7 @@ export class AddUserComponent implements OnInit {
       })
     } else {
       this.http
-        // .post(this.Api_url + '/create/user', this.formData,this.httpOptions)
-        .post(this.Api_url + '/create/user', formData,this.httpOptions)
-
+        .post(this.Api_url + '/create/user', this.userForm.value,this.httpOptions)
         .subscribe((res: any) => {
           console.log('res>>>>>>>>>>>>>>>>>>>>>>>>', res);
           this.response = res.data;

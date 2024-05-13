@@ -1,6 +1,6 @@
 body{
     background-color: rgb(237, 237, 236);
-    width: 100%;
+    width: auto;
 }
 /* .container{
   background-color: rgb(93, 93, 180);
@@ -84,6 +84,7 @@ body{
   .navbar{
     background: linear-gradient(to right, rgb(90, 90, 243), purple);
     margin-top: 8px;
+    width: auto;
     height: 50px;
   }
 
@@ -100,3 +101,78 @@ body{
   .create{
     margin-left: 950px;
   }
+
+
+
+@media  only screen and (min-width:768px) and (max-width: 1290px) {
+
+  .create {
+    margin-left: 20px; /* Adjust the position of the create button */
+  }
+  .logout{
+    margin-left: 20px;
+  }
+  /* .logout{
+    margin-left: 0px
+  } */
+  .secoundContainer{
+    width: 80%;
+    margin-left: 50px;
+    margin-top: 20px;
+    
+}
+.back {
+  margin-left: 550px;
+}
+.navbar-brand {
+  margin-left: 20px;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.navbar-brand{
+  margin-left: 3px;
+}
+/* nav{
+  width: auto;
+} */
+/* .navbar{
+  background: linear-gradient(to right, rgb(90, 90, 243), purple);
+  margin-top: 8px;
+  width: auto;
+  height: 50px;
+} */
+
+
+
+
+  
+
+}
+
+@media  only screen and  (max-width: 768px)   {
+  .create {
+    margin-left: 5px; /* Adjust the position of the create button */
+  }
+  .logout{
+    margin-left: 10px;
+  }
+  .back{
+    margin-left: 20px;
+  }
+
+  .secoundContainer{
+    margin-left: 2px;
+    margin-top: 20px;
+  overflow: auto;
+  
+}
+.navbar-brand{
+  margin-left: 3px;
+}
+
+
+}
+
